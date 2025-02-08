@@ -305,9 +305,10 @@ export default class ScreepsApi extends BasicApi {
    * 提交代码到控制台
    * @param expression 代码
    */
-  public async console(expression: string) {
+  public async console(expression: string, shard: Shard) {
     return await this.req<IConsole>("POST", "/user/console", {
       expression,
+      shard,
     });
   }
 
