@@ -5,7 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup"
+    "dev": "tsup",
+    "build": "tsup",
+    "build:docs": "typedoc src/index.ts",
+    "build:all": "pnpm build && pnpm build:docs"
   },
   "keywords": [
     "screeps",
@@ -15,6 +18,7 @@
     "@types/screeps": "^3.3.8",
     "@types/ws": "^8.5.14",
     "tsup": "^8.3.6",
+    "typedoc": "^0.28.7",
     "typescript": "^5.7.3"
   },
   "dependencies": {
