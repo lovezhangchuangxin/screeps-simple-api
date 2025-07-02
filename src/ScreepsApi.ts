@@ -182,10 +182,11 @@ export default class ScreepsApi extends BasicApi {
   /**
    * 获取市场资源信息
    */
-  public async getMarketOrdersIndex() {
+  public async getMarketOrdersIndex(shard: Shard) {
     return await this.req<IMarketOrdersIndex>(
       "GET",
-      "/game/market/orders-index"
+      "/game/market/orders-index",
+      { shard }
     );
   }
 
