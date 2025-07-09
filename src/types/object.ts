@@ -22,7 +22,9 @@ export type RoomObject =
   | Terminal
   | Nuker
   | Factory
-  | Rampart;
+  | Rampart
+  | Creep
+  | PowerCreep;
 
 export interface Source extends GameObject {
   type: "source";
@@ -243,4 +245,35 @@ export interface Factory extends GameObject {
     };
   };
   level: number;
+}
+
+export interface Creep extends GameObject {
+  type: "creep";
+  name: string;
+  hits: number;
+  hitsMax: number;
+  user: string;
+  spawning: boolean;
+  fatigue: number;
+  body: {
+    type: BodyPartConstant;
+    hits: number;
+    boost?: string;
+  }[];
+  store: {
+    [type in ResourceConstant]: number;
+  };
+  storeCapacity: number;
+  notifyWhenAttacked: boolean;
+}
+
+export interface PowerCreep extends Creep {
+  effects?: {
+    [type: number]: {
+      effect: number;
+      power: number;
+      level: number;
+      endTime: number;
+    };
+  };
 }
