@@ -284,11 +284,11 @@ export default class ScreepsApi extends BasicApi {
 
   /**
    * 查找指定 id 的用户信息
-   * @param userId 用户 id
+   * @param id 用户 id
    */
-  public async getUserInfoByUseId(userId: string) {
+  public async getUserInfoByUserId(id: string) {
     return await this.req<IUserInfo>("GET", "/user/find", {
-      userId,
+      id,
     });
   }
 
