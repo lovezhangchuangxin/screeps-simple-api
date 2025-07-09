@@ -267,13 +267,13 @@ export interface Creep extends GameObject {
   notifyWhenAttacked: boolean;
 }
 
-export interface PowerCreep extends Creep {
-  effects?: {
+export interface PowerCreep extends Omit<Creep, "type"> {
+  type: "powerCreep";
+  className: "operator";
+  power: {
     [type: number]: {
-      effect: number;
-      power: number;
       level: number;
-      endTime: number;
+      cooldownTime?: number;
     };
   };
 }
